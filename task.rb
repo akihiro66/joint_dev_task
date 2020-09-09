@@ -168,18 +168,18 @@ end
 
 class UserQ17
   # 以下に回答を記載
-  attr_accessor :name, :age, :gender
-
-  def initialize(name: name, age: age, gender: gender)
-    @name = name
-    @age = age
-    @gender = gender
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
+    @gender = params[:gender]
   end
 
   def info
-    puts "名前:#{@name}"
-    puts "年齢:#{@age}"
-    puts "性別:#{@gender}"
+    puts <<~TEXT
+    名前:#{@name}
+    年齢:#{@age}
+    性別:#{@gender}
+    TEXT
   end
 end
 
@@ -195,18 +195,16 @@ end
 
 class UserQ18
   # 以下に回答を記載
-  attr_accessor :name, :age
-
-  def initialize(name: name, age: age)
-    @name = name
-    @age = age
+  def initialize(**params)
+    @name = params[:name]
+    @age = params[:age]
   end
 
   def introduce
     if @age < 20
-      puts "はいさいまいど〜,#{@name}です!!!"
+      print "はいさいまいど〜,#{@name}です!!!"
     else
-      puts "こんにちは,#{@name}と申します。宜しくお願いいたします。"
+      print "こんにちは,#{@name}と申します。宜しくお願いいたします。"
     end
   end
 end
